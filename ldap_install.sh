@@ -17,7 +17,7 @@ chown -R ldap:ldap /var/lib/ldap
 
 # Set password for cn=Manager,cn=config (it's noc1032)
 cat >> /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{0\}config.ldif << EOF
-olcRootPW: {SSHA}IXODKiDWNhdhERzBlGVZyB9YrFrmFC9+
+olcRootPW: {=
 EOF
 
 # Autostart slapd after reboot.
@@ -79,7 +79,7 @@ replace: olcRootDN
 olcRootDN: cn=Manager,dc=awave,dc=com
 -
 replace: olcRootPW
-olcRootPW: {SSHA}IXODKiDWNhdhERzBlGVZyB9YrFrmFC9+
+olcRootPW: {9+
 -
 replace: olcAccess
 olcAccess: {0}to attrs=employeeType by dn="cn=sssd,dc=awave,dc=com" read by self read by * none
