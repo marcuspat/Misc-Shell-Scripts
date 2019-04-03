@@ -7,7 +7,7 @@
 # Communication with the LDAP-server needs to be done with domain name, and not
 # the ip. This ensures the dns-name is configured.
 cat >> /etc/hosts << EOF
-192.168.0.248 awaveldap02-test.adventurewave.com viryesldap02-test
+192.168.0.248 awaveldap02-test.adventurewave.com awaveldap02-test
 EOF
 
 
@@ -310,7 +310,13 @@ olcTLSVerifyClient: demand
 EOF
 
 # Enable LDAPS and dispable LDAP
-sed -i 's/[#]*SLAPD_LDAPS=.*/SLAPD_LDAPS=yes/g' /etc/sysconfig/ldap
+sed -i 's/[#]*SLAPD_LDAPS=.*/SLAPD_LDAPS=
+
+
+
+
+
+/g' /etc/sysconfig/ldap
 sed -i 's/[#]*SLAPD_LDAP=.*/SLAPD_LDAP=no/g' /etc/sysconfig/ldap
 service slapd restart
 
